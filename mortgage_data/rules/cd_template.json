@@ -1,0 +1,71 @@
+{
+  "description": "Standard Closing Disclosure (CD) section layout per CFPB TRID rules",
+  "balance_formula": "cash_to_close = loan_amount - down_payment + total_closing_costs - lender_credits - seller_credits",
+  "tolerance": "$0.50",
+  "sections": {
+    "A": {
+      "name": "Origination Charges",
+      "tolerance_bucket": "zero_tolerance",
+      "line_items": [
+        {"line": "A.01", "description": "Origination Fee (% of loan amount)"},
+        {"line": "A.02", "description": "Discount Points"},
+        {"line": "A.03", "description": "Commitment Fee"}
+      ]
+    },
+    "B": {
+      "name": "Services Borrower Did Not Shop For",
+      "tolerance_bucket": "ten_percent",
+      "line_items": [
+        {"line": "B.01", "description": "Appraisal Fee"},
+        {"line": "B.02", "description": "Credit Report Fee"},
+        {"line": "B.03", "description": "Flood Determination Fee"},
+        {"line": "B.04", "description": "Flood Monitoring Fee"},
+        {"line": "B.05", "description": "Tax Monitoring Fee"}
+      ]
+    },
+    "C": {
+      "name": "Services Borrower Did Shop For",
+      "tolerance_bucket": "no_limit",
+      "line_items": [
+        {"line": "C.01", "description": "Title Services and Lender's Title Insurance"},
+        {"line": "C.02", "description": "Attorney Fee"},
+        {"line": "C.03", "description": "Settlement Agent Fee"}
+      ]
+    },
+    "E": {
+      "name": "Taxes and Government Fees",
+      "tolerance_bucket": "zero_tolerance",
+      "line_items": [
+        {"line": "E.01", "description": "Transfer Tax"},
+        {"line": "E.02", "description": "Recording Fees (Deed and Mortgage)"}
+      ]
+    },
+    "F": {
+      "name": "Prepaids",
+      "tolerance_bucket": "no_limit",
+      "line_items": [
+        {"line": "F.01", "description": "Prepaid Interest"},
+        {"line": "F.02", "description": "Homeowners Insurance Premium"},
+        {"line": "F.03", "description": "Mortgage Insurance Premium"}
+      ]
+    },
+    "G": {
+      "name": "Initial Escrow Payment at Closing",
+      "tolerance_bucket": "no_limit",
+      "line_items": [
+        {"line": "G.01", "description": "Initial Escrow - Homeowners Insurance"},
+        {"line": "G.02", "description": "Initial Escrow - Property Taxes"},
+        {"line": "G.03", "description": "Initial Escrow - Mortgage Insurance"}
+      ]
+    },
+    "H": {
+      "name": "Other",
+      "tolerance_bucket": "no_limit",
+      "line_items": [
+        {"line": "H.01", "description": "Survey Fee"},
+        {"line": "H.02", "description": "HOA Transfer Fee"},
+        {"line": "H.03", "description": "Home Inspection Fee"}
+      ]
+    }
+  }
+}

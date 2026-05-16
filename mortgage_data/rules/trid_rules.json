@@ -1,0 +1,23 @@
+{
+  "timeline_rules": {
+    "le_issuance_max_days": 3,
+    "cd_receipt_min_days_before_closing": 3,
+    "description": "Loan Estimate within 3 business days of application; CD at least 3 business days before closing"
+  },
+  "tolerance_buckets": {
+    "zero_tolerance": {
+      "description": "Origination charges, transfer taxes — cannot increase from LE to CD",
+      "max_increase_percent": 0,
+      "items": ["origination_fee", "discount_points", "transfer_tax"]
+    },
+    "ten_percent": {
+      "description": "Recording fees and required third-party services — cumulative max 10% increase",
+      "max_increase_percent": 10,
+      "items": ["recording_fee", "appraisal_fee", "credit_report_fee", "flood_determination"]
+    },
+    "no_limit": {
+      "description": "Prepaids, initial escrow — no tolerance limit",
+      "items": ["homeowners_insurance_premium", "prepaid_interest", "escrow_setup"]
+    }
+  }
+}

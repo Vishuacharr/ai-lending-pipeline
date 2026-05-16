@@ -1,0 +1,153 @@
+{
+  "loan_id": "LOAN-002",
+  "application": {
+    "loan_id": "LOAN-002",
+    "loan_amount": 304000,
+    "loan_type": "CONVENTIONAL",
+    "interest_rate": 6.875,
+    "loan_term_years": 30,
+    "application_date": "2024-09-01",
+    "le_issued_date": "2024-09-03",
+    "cd_received_date": "2024-09-26",
+    "closing_date": "2024-09-30",
+    "borrower": {
+      "name": "Bob Johnson",
+      "ssn_last4": "5678",
+      "annual_income_stated": 95000,
+      "employment_type": "W2"
+    },
+    "property": {
+      "address": "456 Oak Lane, Austin, TX 78702",
+      "appraised_value": 385000,
+      "purchase_price": 380000,
+      "property_type": "SINGLE_FAMILY"
+    }
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-002-W2",
+      "doc_type": "W2",
+      "filename": "w2_2023_bob_johnson.pdf",
+      "upload_timestamp": "2024-09-02T10:00:00",
+      "version": 1,
+      "data": {
+        "wages_tips_other_compensation": 85000,
+        "federal_income_tax_withheld": 12750,
+        "employer": "TechCorp Inc",
+        "tax_year": 2023
+      }
+    },
+    {
+      "doc_id": "DOC-002-PAY",
+      "doc_type": "PAYSTUB",
+      "filename": "paystub_aug2024_bob_johnson.pdf",
+      "upload_timestamp": "2024-09-02T10:05:00",
+      "version": 1,
+      "data": {
+        "ytd_gross": 56666.67,
+        "current_month": 8,
+        "employer": "TechCorp Inc",
+        "pay_period_end": "2024-08-31"
+      }
+    },
+    {
+      "doc_id": "DOC-002-TAX",
+      "doc_type": "TAX_RETURN_1040",
+      "filename": "1040_2023_bob_johnson.pdf",
+      "upload_timestamp": "2024-09-02T10:10:00",
+      "version": 1,
+      "data": {
+        "adjusted_gross_income": 84000,
+        "total_income": 85000,
+        "tax_year": 2023,
+        "filing_status": "single"
+      }
+    },
+    {
+      "doc_id": "DOC-002-APR",
+      "doc_type": "APPRAISAL_REPORT",
+      "filename": "appraisal_report_456_oak.pdf",
+      "upload_timestamp": "2024-09-05T14:00:00",
+      "version": 1,
+      "data": {
+        "appraised_value": 385000,
+        "effective_date": "2024-09-04",
+        "appraiser": "Jane Appraiser, MAI",
+        "comparable_sales": [
+          {"address": "458 Oak Ln", "sale_price": 378000, "sale_date": "2024-07-15"},
+          {"address": "450 Oak Ave", "sale_price": 392000, "sale_date": "2024-08-01"},
+          {"address": "462 Elm Dr", "sale_price": 382500, "sale_date": "2024-08-20"}
+        ]
+      }
+    },
+    {
+      "doc_id": "DOC-002-LE",
+      "doc_type": "LOAN_ESTIMATE",
+      "filename": "loan_estimate_loan002.pdf",
+      "upload_timestamp": "2024-09-03T09:00:00",
+      "version": 1,
+      "data": {
+        "issued_date": "2024-09-03",
+        "fees": {
+          "origination_fee": 3040,
+          "discount_points": 0,
+          "transfer_tax": 1140,
+          "recording_fee": 125,
+          "appraisal_fee": 550,
+          "credit_report_fee": 35,
+          "flood_determination": 12
+        }
+      }
+    },
+    {
+      "doc_id": "DOC-002-CD",
+      "doc_type": "CLOSING_DISCLOSURE",
+      "filename": "closing_disclosure_loan002.pdf",
+      "upload_timestamp": "2024-09-26T08:00:00",
+      "version": 1,
+      "data": {
+        "down_payment": 76000,
+        "lender_credits": 1000,
+        "seller_credits": 500,
+        "cash_to_close_stated": 236128.50,
+        "fees": {
+          "origination_fee": 3040,
+          "discount_points": 0,
+          "transfer_tax": 1140,
+          "recording_fee": 125,
+          "appraisal_fee": 550,
+          "credit_report_fee": 35,
+          "flood_determination": 12
+        },
+        "line_items": [
+          {"line_number": "A.01", "description": "Origination Fee", "category": "ORIGINATION", "amount": 3040, "payee": "Lender"},
+          {"line_number": "A.02", "description": "Discount Points", "category": "ORIGINATION", "amount": 0, "payee": "Lender"},
+          {"line_number": "B.01", "description": "Appraisal Fee", "category": "SERVICES_BORROWER_DID_NOT_SHOP", "amount": 550, "payee": "Appraisal Co"},
+          {"line_number": "B.02", "description": "Credit Report Fee", "category": "SERVICES_BORROWER_DID_NOT_SHOP", "amount": 35, "payee": "Credit Bureau"},
+          {"line_number": "B.03", "description": "Flood Determination", "category": "SERVICES_BORROWER_DID_NOT_SHOP", "amount": 12, "payee": "Flood Co"},
+          {"line_number": "C.01", "description": "Title Services", "category": "SERVICES_BORROWER_SHOPPED", "amount": 1200, "payee": "Title Co"},
+          {"line_number": "E.01", "description": "Transfer Tax", "category": "TAXES_GOVT_FEES", "amount": 1140, "payee": "County"},
+          {"line_number": "E.02", "description": "Recording Fee", "category": "TAXES_GOVT_FEES", "amount": 125, "payee": "County"},
+          {"line_number": "F.01", "description": "Prepaid Interest (15 days @ $57.88/day)", "category": "PREPAIDS", "amount": 868.17, "payee": "Lender"},
+          {"line_number": "F.02", "description": "Homeowners Insurance Premium (12 mo)", "category": "PREPAIDS", "amount": 1200, "payee": "Insurance Co"},
+          {"line_number": "G.01", "description": "Initial Escrow - HOI (2 mo)", "category": "INITIAL_ESCROW", "amount": 200, "payee": "Escrow"},
+          {"line_number": "G.02", "description": "Initial Escrow - Property Tax (2 mo)", "category": "INITIAL_ESCROW", "amount": 633.33, "payee": "Escrow"},
+          {"line_number": "H.01", "description": "Survey Fee", "category": "OTHER", "amount": 375, "payee": "Surveyor"},
+          {"line_number": "H.02", "description": "HOA Transfer Fee", "category": "OTHER", "amount": 250, "payee": "HOA"}
+        ]
+      }
+    },
+    {
+      "doc_id": "DOC-002-PC",
+      "doc_type": "PURCHASE_CONTRACT",
+      "filename": "purchase_contract_456_oak.pdf",
+      "upload_timestamp": "2024-09-01T09:00:00",
+      "version": 1,
+      "data": {
+        "purchase_price": 380000,
+        "earnest_money": 5000,
+        "closing_date": "2024-09-30"
+      }
+    }
+  ]
+}

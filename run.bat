@@ -1,0 +1,9 @@
+@echo off
+echo Installing dependencies...
+pip install -r requirements.txt
+echo.
+echo Running pipeline tests...
+python -m pytest tests/ -v
+echo.
+echo Starting Streamlit UI...
+streamlit run ui/app.py
