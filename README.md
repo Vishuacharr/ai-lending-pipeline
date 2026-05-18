@@ -1,10 +1,10 @@
-# Mortgage Multi-Agent Processing Pipeline
+# AI Lending Pipeline
 
 ## Overview
 
-Mortgage loan processing involves numerous compliance checks, document verifications, and financial calculations that must happen in a defined sequence before a loan can close. A single missed step — an unverified income discrepancy, a TRID timeline violation, or a closing disclosure arithmetic error — can result in regulatory penalties or financial loss.
+Loan processing involves compliance checks, document verifications, and financial calculations that must happen in a precise sequence before a loan can close. A single missed step — an unverified income discrepancy, a TRID timeline violation, or a closing disclosure arithmetic error — can result in regulatory penalties, post-close defects, or investor buyback risk.
 
-This project demonstrates a **LangGraph-powered multi-agent pipeline** that automates five key mortgage underwriting checks using deterministic, rule-based logic. Each agent is a focused specialist; the orchestrator handles routing and halting conditions.
+This project demonstrates a **LangGraph-powered multi-agent pipeline** that automates five key underwriting checks using deterministic, rule-based logic. Each agent is a focused specialist; the orchestrator handles routing and halting conditions. The same architecture applies across mortgage, auto, personal, and commercial lending workflows.
 
 ---
 
@@ -46,7 +46,7 @@ graph TD
 |---|---|---|
 | `loan_001_clean.json` | All checks pass — W2/paystub/1040 agree, LTV 79%, TRID clean, CD balanced | **APPROVED** |
 | `loan_002_income_mismatch.json` | W2 shows $85,000 vs stated $95,000 (10.5% variance — between 5% and 15% thresholds) | **REVIEW** |
-| `loan_003_cd_imbalance.json` | CD line items sum to $12,627.50 but stated cash-to-close is $127.50 off from computed | **REJECTED** |
+| `loan_003_cd_imbalance.json` | CD line items sum correctly but stated cash-to-close is $127.50 off from computed | **REJECTED** |
 
 ---
 
@@ -54,7 +54,7 @@ graph TD
 
 ```bash
 # 1. Clone / navigate to the project
-cd mortgage-multi-agent-pipeline
+cd ai-lending-pipeline
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -75,7 +75,7 @@ run.bat
 
 ### Shared Memory (`core/memory.py`)
 
-`PipelineMemory` is a simple dict-based store that agents use to share derived data without modifying state directly. For example, `income_verifier` writes `verified_income` and `appraisal_analyzer` writes `ltv`. Later agents (or the UI) can read these values without re-computing.
+`PipelineMemory` is a dict-based store that agents use to share derived data without modifying state directly. For example, `income_verifier` writes `verified_income` and `appraisal_analyzer` writes `ltv`. Later agents (or the UI) can read these values without re-computing.
 
 ### Audit Trail (`core/audit.py`)
 
@@ -109,7 +109,7 @@ Each agent's rule-based logic can be replaced with an LLM call — the graph rou
 ```python
 # Future: replace threshold math with LLM reasoning
 response = anthropic_client.messages.create(
-    model="claude-opus-4-5",
+    model="claude-opus-4-7",
     messages=[{"role": "user", "content": f"Verify this income: {income_docs}"}],
 )
 ```
@@ -119,7 +119,7 @@ response = anthropic_client.messages.create(
 ## Project Structure
 
 ```
-mortgage-multi-agent-pipeline/
+ai-lending-pipeline/
 ├── agents/           # Five specialist agent modules
 ├── core/             # State, memory, audit, orchestrator
 ├── models/           # Pydantic data models
